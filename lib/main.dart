@@ -27,7 +27,7 @@ class MyHomePage extends StatefulWidget {
   _MyHomePageState createState() => _MyHomePageState();
 }
 
-class _MyHomePageState extends State<MyHomePage> implements FlareController {
+class _MyHomePageState extends State<MyHomePage>  {
   String _animation = "idle";
 
   void doAnimate(String anim) {
@@ -51,7 +51,6 @@ class _MyHomePageState extends State<MyHomePage> implements FlareController {
               alignment: Alignment.center,
               fit: BoxFit.contain,
               animation: _animation,
-              controller: this,
             ),
           ),
           //animations
@@ -98,21 +97,5 @@ class _MyHomePageState extends State<MyHomePage> implements FlareController {
         ],
       ),
     );
-  }
-
-  @override
-  bool advance(FlutterActorArtboard artboard, double elapsed) {
-    // TODO: implement advance
-    return null;
-  }
-
-  @override
-  void initialize(FlutterActorArtboard artboard) {
-    // TODO: implement initialize
-  }
-
-  @override
-  void setViewTransform(Mat2D viewTransform) {
-    // TODO: implement setViewTransform
   }
 }
