@@ -1,6 +1,7 @@
-## Flutter Flare Demo 
-   
-Hello All    
+
+  
+## Flutter Flare Demo    
+ Hello All    
     
 In Flutter Live 2018 few important announcement's are    
 * Flare    
@@ -16,7 +17,9 @@ Lets Start
  Import flare dependency into your flutter project    
     
 ```yaml    
-flare_flutter: ^1.0.4 ```    
+flare_flutter: ^1.0.4 
+```
+
  ## Step 2:    
  Create a flare project [Here](https://www.2dimensions.com/) or use an existing one  [Here](https://www.2dimensions.com/explore/popular/trending/all)  
   
@@ -39,16 +42,18 @@ Now select Flutter, Select Binary Click on `Export`
 ## Step 3  
   
 Import flare inside your dart file      
-```dart import 'package:flare_flutter/flare_actor.dart'; ```  
-  
+```dart 
+import 'package:flare_flutter/flare_actor.dart'; 
+```
+
 ## Step 4  
 Inside pubspec.yaml file enable access to copied flare files  
   
-```yaml  
+```yaml 
 assets:    
   - images/  
-```  
-  
+```
+
 ## Step 5  
   
 Now lets create a `FlareActor` and pass the `.flr` file to it  
@@ -58,8 +63,10 @@ FlareActor(
   "images/minion.flr",    
   alignment: Alignment.center,    
   fit: BoxFit.contain,    
-animation: "Look", )  
-```  
+  animation: "Look", 
+)  
+```
+
 In the above code animation takes a String i.e., the name of the animation as shown in the Step 2  
   
 ## Step 6  
@@ -67,23 +74,91 @@ In the above code animation takes a String i.e., the name of the animation as sh
 Inside our dart file lets make bottons and add animtions to each one   
   
 ```dart  
-String _animation = "idle";  
-void doAnimate(String anim) {  
- setState(() { _animation = anim; });}  
-@override  
-Widget build(BuildContext context) {  
- return Scaffold( appBar: AppBar( title: Text(widget.title), ), body: Column( children: <Widget>[ //flare actor Expanded( child: FlareActor( "images/minion.flr", alignment: Alignment.center, fit: BoxFit.contain, animation: _animation, controller: this, ), ), //animations Row( mainAxisAlignment: MainAxisAlignment.spaceEvenly, children: <Widget>[ RaisedButton( child: Text("Look"), onPressed: () { doAnimate("Look"); }, ), RaisedButton( child: Text("Dance"), onPressed: () { doAnimate("Dance"); }, ), RaisedButton( child: Text("Stand"), onPressed: () { doAnimate("Stand"); }, ) ], ), Row( mainAxisAlignment: MainAxisAlignment.spaceEvenly, children: <Widget>[ RaisedButton( child: Text("Jump"), onPressed: () { doAnimate("Jump"); }, ), RaisedButton( child: Text("Wave"), onPressed: () { doAnimate("Wave"); }, ) ], ) ], ), );}  
-```  
-  
+String _animation = "idle";
+
+void doAnimate(String anim) {
+  setState(() {
+    _animation = anim;
+  });
+}
+
+@override
+Widget build(BuildContext context) {
+  return Scaffold(
+    appBar: AppBar(
+      title: Text(widget.title),
+    ),
+    body: Column(
+      children: <Widget>[
+        //flare actor
+        Expanded(
+          child: FlareActor(
+            "images/minion.flr",
+            alignment: Alignment.center,
+            fit: BoxFit.contain,
+            animation: _animation,
+          ),
+        ),
+        //animations
+        Row(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          children: <Widget>[
+            RaisedButton(
+              child: Text("Look"),
+              onPressed: () {
+                doAnimate("Look");
+              },
+            ),
+            RaisedButton(
+              child: Text("Dance"),
+              onPressed: () {
+                doAnimate("Dance");
+              },
+            ),
+            RaisedButton(
+              child: Text("Stand"),
+              onPressed: () {
+                doAnimate("Stand");
+              },
+            )
+          ],
+        ),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          children: <Widget>[
+            RaisedButton(
+              child: Text("Jump"),
+              onPressed: () {
+                doAnimate("Jump");
+              },
+            ),
+            RaisedButton(
+              child: Text("Wave"),
+              onPressed: () {
+                doAnimate("Wave");
+              },
+            )
+          ],
+        )
+      ],
+    ),
+  );
+}
+```
+
 In the above code we declare a varibale `_animation` and assign it a value `idle` as inital state and when we click on a button we change the `_animation` to a sutiable animation  
   
 Our animation function  
+
 ```dart  
-void doAnimate(String anim) {  
- setState(() { _animation = anim; });}  
-```  
+void doAnimate(String anim) {
+  setState(() {
+    _animation = anim;
+  });
+}  
+```
   
-  ## Demo
+## Demo
 
 ![Flare Demo Output](https://i.imgur.com/Vsz6EhH.gif =250x)
   
@@ -99,16 +174,22 @@ FlareActor(
   alignment: Alignment.center,    
   fit: BoxFit.contain,    
   animation: _animation,    
-controller: this, )  
-```  
+)  
+```
   
 and we need to `override` few methods from the `FlareController`   
 ```dart  
-@override bool advance(FlutterActorArtboard artboard, double elapsed) {    
-// TODO: implement advance    
-return null; }    
- @override void initialize(FlutterActorArtboard artboard) {    
-// TODO: implement initialize }    
- @override void setViewTransform(Mat2D viewTransform) {    
-// TODO: implement setViewTransform }  
+@override
+bool advance(FlutterActorArtboard artboard, double elapsed) {
+  // TODO: implement advance
+  return null;
+}
+@override
+void initialize(FlutterActorArtboard artboard) {
+  // TODO: implement initialize
+}
+@override
+void setViewTransform(Mat2D viewTransform) {
+  // TODO: implement setViewTransform
+}
 ```

@@ -27,7 +27,7 @@ class MyHomePage extends StatefulWidget {
   _MyHomePageState createState() => _MyHomePageState();
 }
 
-class _MyHomePageState extends State<MyHomePage>  {
+class _MyHomePageState extends State<MyHomePage> {
   String _animation = "idle";
 
   void doAnimate(String anim) {
